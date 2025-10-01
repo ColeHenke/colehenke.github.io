@@ -8,12 +8,22 @@
     <h1>Cole Henke - CSCI 713</h1>
     <br>
     <h3>Here are some buttons that do stuff</h3>
-    <button>Random Link!</button>
+    <button id="linkButton">Random Link!</button>
     <button>I Expand!</button>
     <button>I Teleport!</button>
 </body>
 
 <script>
-
+    document.getElementById("linkButton").addEventListener("click", function () {
+        const totallyRandomLinks = [
+            "https://www.google.com",
+            "https://www.youtube.com",
+            "https://www.chess.com/home",
+            "https://huggingface.co/",
+            "https://github.com/LadybirdBrowser/ladybird"
+        ];
+        const randomLink = totallyRandomLinks[Math.floor(Math.random() * totallyRandomLinks.length)];
+        window.open(randomLink, "_blank");
+    });
 </script>
 </html>
