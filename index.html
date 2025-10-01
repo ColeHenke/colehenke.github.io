@@ -8,9 +8,9 @@
     <h1>Cole Henke - CSCI 713</h1>
     <br>
     <h3>Here are some buttons that do stuff</h3>
-    <button id="linkButton">Random Link!</button>
-    <button id="expandButton">I Expand!</button>
-    <button>I Teleport!</button>
+    <div><button id="linkButton">Random Link!</button></div>
+    <div><button id="expandButton">I Expand!</button></div>
+    <div><button id="teleportButton">I Teleport!</button></div>
 </body>
 
 <script>
@@ -38,6 +38,17 @@
 
         expandButton.style.width = newWidth.toString() + "px";
         expandButton.style.height = newHeight.toString() + "px";
+    });
+
+    const teleportButton = document.getElementById("teleportButton");
+    teleportButton.addEventListener("click", function () {
+        const styles = window.getComputedStyle(teleportButton);
+
+        const randomXMove = Math.floor(Math.random() * 100);
+        const randomYMove = Math.floor(Math.random() * 100);
+
+        teleportButton.style.marginLeft = (styles.marginLeft[0] + randomXMove).toString() + "px";
+        teleportButton.style.marginTop = (styles.marginTop[0] + randomYMove).toString() + "px";
     });
 </script>
 </html>
