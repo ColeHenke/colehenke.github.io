@@ -9,7 +9,7 @@
     <br>
     <h3>Here are some buttons that do stuff</h3>
     <button id="linkButton">Random Link!</button>
-    <button>I Expand!</button>
+    <button id="expandButton">I Expand!</button>
     <button>I Teleport!</button>
 </body>
 
@@ -24,6 +24,20 @@
         ];
         const randomLink = totallyRandomLinks[Math.floor(Math.random() * totallyRandomLinks.length)];
         window.open(randomLink, "_blank");
+    });
+
+    const expandButton = document.getElementById("expandButton");
+    expandButton.addEventListener("click", function () {
+        const styles = window.getComputedStyle(expandButton);
+
+        const oldWidth = styles.width;
+        const oldHeight = styles.height;
+
+        const newWidth = parseInt(oldWidth) + 10;
+        const newHeight = parseInt(oldHeight) + 10;
+
+        expandButton.style.width = newWidth.toString() + "px";
+        expandButton.style.height = newHeight.toString() + "px";
     });
 </script>
 </html>
